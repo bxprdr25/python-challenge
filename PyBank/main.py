@@ -12,7 +12,8 @@
 
 # * As an example, your analysis should look similar to the one below:
 
-#   ```text
+# In addition, your final script should both print the analysis to the terminal and export a text file with the results.
+
 #   Financial Analysis
 #   ----------------------------
 #   Total Months: 86
@@ -34,11 +35,9 @@ profitValue = 0
 plDiff = []
 date = []
 
-budget_csv = os.path.join(r"C:\Users\bxprd\Data Analytics Bootcamp\Git_Repos\python-challenge\Resources\budget_data.csv")
+outputPath = os.path.join(r"C:\Users\bxprd\Data Analytics Bootcamp\Git_Repos\python-challenge\PyBank\Analysis\PyBank")
+budget_csv = os.path.join(r"C:\Users\bxprd\Data Analytics Bootcamp\Git_Repos\python-challenge\PyBank\Resource\budget_data.csv")
 print(budget_csv)
-
-# totalMonths = date.count()
-# print(totalMonths)
 
 with open(budget_csv) as csvfile:
 
@@ -56,6 +55,7 @@ with open(budget_csv) as csvfile:
     #print(profitValue)
     plTotal = int(nextRow[1])
     #print(plTotal)
+
     #startPoint = str(nextRow[0])
     #date.append(startPoint)
 
@@ -100,5 +100,14 @@ with open(budget_csv) as csvfile:
     print(f"Average Change: {str(avgChange)}")
     print(f"Greatest Increase in Profits: {greatDate} - (${str(increase)})")
     print(f"Greatest Decrease in Profits: {worstDate} - (${str(decrease)})")
+    print(f"------------------")
 
-
+with open(outputPath, "w", newline='') as textfile:
+    print(f"Financial Analysis", file=textfile)
+    print(f"------------------", file=textfile)
+    print(f"Total Months: {str(totalMonths)}", file=textfile)
+    print(f"Total: {str(plTotal)}", file=textfile)
+    print(f"Average Change: {str(avgChange)}", file=textfile)
+    print(f"Greatest Increase in Profits: {greatDate} - (${str(increase)})", file=textfile)
+    print(f"Greatest Decrease in Profits: {worstDate} - (${str(decrease)})", file=textfile)
+    print(f"------------------", file=textfile)
