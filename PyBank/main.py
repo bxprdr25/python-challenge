@@ -23,7 +23,7 @@
 #   Greatest Decrease in Profits: Sep-2013 ($-2196167)
 #   ```
 
-# * In addition, your final script should both print the analysis to the terminal and export a text file with the results.
+# In addition, your final script should both print the analysis to the terminal and export a text file with the results.
 
 import os
 import csv
@@ -35,9 +35,8 @@ profitValue = 0
 plDiff = []
 date = []
 
-outputPath = os.path.join(r"C:\Users\bxprd\Data Analytics Bootcamp\Git_Repos\python-challenge\PyBank\Analysis\PyBank")
-budget_csv = os.path.join(r"C:\Users\bxprd\Data Analytics Bootcamp\Git_Repos\python-challenge\PyBank\Resource\budget_data.csv")
-print(budget_csv)
+outputPath = os.path.join(".", "Analysis", "PyBank")
+budget_csv = os.path.join(".", "Resources", "budget_data.csv")
 
 with open(budget_csv) as csvfile:
 
@@ -82,6 +81,7 @@ with open(budget_csv) as csvfile:
         bestIndex = plDiff.index(decrease)        
         worstDate = date[bestIndex]
 
+    #Print results to terminal
     print(f"Financial Analysis")
     print(f"------------------")
     print(f"Total Months: {str(totalMonths)}")
@@ -91,6 +91,7 @@ with open(budget_csv) as csvfile:
     print(f"Greatest Decrease in Profits: {worstDate} - (${str(decrease)})")
     print(f"------------------")
 
+    #Print results to a text file
 with open(outputPath, "w", newline='') as textfile:
     print(f"Financial Analysis", file=textfile)
     print(f"------------------", file=textfile)

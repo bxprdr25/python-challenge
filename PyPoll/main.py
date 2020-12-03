@@ -32,7 +32,7 @@ candidates = []
 winVotes = 0
 
 outputPath = os.path.join(r"C:\Users\bxprd\Data Analytics Bootcamp\Git_Repos\python-challenge\PyPoll\Analysis\PyPoll")
-election_csv = os.path.join(r"C:\Users\bxprd\Data Analytics Bootcamp\Git_Repos\python-challenge\PyPoll\Resources\election_data.csv")
+election_csv = os.path.join(".", "Resources", "election_data.csv")
 
 #with statement to open the csv file
 with open(election_csv) as csvfile:
