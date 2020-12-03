@@ -48,16 +48,10 @@ with open(budget_csv) as csvfile:
 
     #Reading the row after the header row
     nextRow = next(csv_reader)
-    #print(nextRow)
-
+    
     #Set Profit Value and plTotal = to the first row in column 2 (index 1)
-    profitValue = int(nextRow[1])
-    #print(profitValue)
+    profitValue = int(nextRow[1])    
     plTotal = int(nextRow[1])
-    #print(plTotal)
-
-    #startPoint = str(nextRow[0])
-    #date.append(startPoint)
 
     # Read through each row of data after the header
     for column in csv_reader:
@@ -67,30 +61,25 @@ with open(budget_csv) as csvfile:
         #print(date)
 
         #aggregate the total months and the total profit & loss
-
-        totalMonths += 1
-        #print(totalMonths)
+        totalMonths += 1        
         plTotal += int(column[1])
 
         #Calculate the difference between the first 2 values and append it to a new list
         plChanges = int(column[1]) - profitValue
         plDiff.append(plChanges)
-        #print(plDiff)
+
+
         profitValue = int(column[1])
         avgChange = round(sum(plDiff) / len(plDiff), 2)
 
         # Greatest increase in profits
-        increase = max(plDiff)
-        #print(increase)
+        increase = max(plDiff)     
         bestIndex = plDiff.index(increase)
-        #print(bestIndex)
         greatDate = date[bestIndex]
 
         # Greatest decrease (lowest increase) in profits
-        decrease = min(plDiff)
-        # print(increase)
-        bestIndex = plDiff.index(decrease)
-        # print(bestIndex)
+        decrease = min(plDiff)        
+        bestIndex = plDiff.index(decrease)        
         worstDate = date[bestIndex]
 
     print(f"Financial Analysis")
