@@ -17,7 +17,6 @@
 
 import os
 import csv
-from operator import itemgetter
 
 us_state_abbrev = {
     'Alabama': 'AL',
